@@ -36,7 +36,8 @@
 #define MOUSEKEY_WHEEL_MAX_SPEED    8
 #define MOUSEKEY_WHEEL_TIME_TO_MAX  40
 
-// Tap-Hold
+// Tap-Hold (and Tap-Dance)
 #define TAPPING_TERM                200
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM              100
