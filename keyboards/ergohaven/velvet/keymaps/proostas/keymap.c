@@ -11,7 +11,8 @@ enum layer_names {
   _NUMBER,
   _FUNCTION,
   _MEDIA,
-  _MOUSE
+  _MOUSE,
+  _SYMBOL
 };
 
 enum tap_dance_names {
@@ -33,6 +34,7 @@ enum custom_keycodes {
 #define FUN  _FUNCTION
 #define MED  _MEDIA
 #define MOS  _MOUSE
+#define SYM  _SYMBOL
 
 #define GUI_A  LGUI_T(KC_A)
 #define ALT_R  LALT_T(KC_R)
@@ -56,7 +58,8 @@ enum custom_keycodes {
 #define NUM_SPC LT(NUM, KC_SPC)
 #define QWN_BSP LT(QWN, KC_BSPC)
 #define MED_G   LT(MED, KC_G)
-#define MED_M   LT(MED, KC_M)
+#define SYM_M   LT(SYM, KC_M)
+#define SYM_H   LT(SYM, KC_H)
 
 tap_dance_action_t tap_dance_actions[] = {
   [TD_BOOT_GRV] = ACTION_TAP_DANCE_TAP_HOLD(KC_GRV, QK_BOOT),
@@ -65,10 +68,28 @@ tap_dance_action_t tap_dance_actions[] = {
 #define GRV_BOOT TD(TD_BOOT_GRV)
 #define RBR_BOOT TD(TD_BOOT_RBRC)
 
+#define SH_LBRC LSFT(KC_LBRC)
+#define SH_RBRC LSFT(KC_RBRC)
+#define SH_SCLN LSFT(KC_SCLN)
+#define SH_GRV  LSFT(KC_GRV)
+#define SH_EQL  LSFT(KC_EQL)
+#define SH_BSLS LSFT(KC_BSLS)
+#define SH_MINS LSFT(KC_MINS)
+#define SH_0    LSFT(KC_0)
+#define SH_1    LSFT(KC_1)
+#define SH_2    LSFT(KC_2)
+#define SH_3    LSFT(KC_3)
+#define SH_4    LSFT(KC_4)
+#define SH_5    LSFT(KC_5)
+#define SH_6    LSFT(KC_6)
+#define SH_7    LSFT(KC_7)
+#define SH_8    LSFT(KC_8)
+#define SH_9    LSFT(KC_9)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                           KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
-    GUI_A,   ALT_R,   SFT_S,   CTR_T,   MED_G,                          MED_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O,
+    GUI_A,   ALT_R,   SFT_S,   CTR_T,   MED_G,                          SYM_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O,
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                           KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
                       GRV_BOOT,KC_BSLS, CON_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, KC_LBRC, RBR_BOOT
   ),
@@ -82,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
-    GUI_A,   ALT_S,   SFT_D,   CTL_F,   MED_G,                          KC_H,    CTL_J,   SFT_K,   ALT_L,   GUI_SC,
+    GUI_A,   ALT_S,   SFT_D,   CTL_F,   MED_G,                          SYM_H,   CTL_J,   SFT_K,   ALT_L,   GUI_SC,
     KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                       KC_GRV,  KC_BSLS, QWN_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, KC_LBRC, KC_RBRC
   ),
@@ -120,7 +141,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_WH_D, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_BTN2, KC_BTN1, XXXXXXX, XXXXXXX
-  )
+  ),
+
+  [_SYMBOL] = LAYOUT(
+    SH_LBRC, SH_7,    SH_8,    SH_9,    SH_RBRC,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,
+    SH_SCLN, SH_4,    SH_5,    SH_6,    SH_EQL,                         XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI,
+    SH_GRV,  SH_1,    SH_2,    SH_3,    SH_BSLS,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                      XXXXXXX, XXXXXXX, SH_0,    SH_MINS,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+  ),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
