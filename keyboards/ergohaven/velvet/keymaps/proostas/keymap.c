@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 
 #include "tap_dance.h"
+#include "os_detection.h"
 
 enum layer_names {
   _COLEMAK,
@@ -16,6 +17,12 @@ enum layer_names {
 enum tap_dance_names {
   TD_BOOT_GRV,
   TD_BOOT_RBRC
+};
+
+enum custom_keycodes {
+  TO_RUS = SAFE_RANGE,
+  TO_ENG,
+  PRNT_OS
 };
 
 #define COL  _COLEMAK
@@ -67,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_COLEMAK_NAV] = LAYOUT(
-    KC_ESC,  KC_CAPS, TG(QWR), TG(QWR), XXXXXXX,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,
+    KC_ESC,  KC_CAPS, TO_RUS, TG(QWR),  PRNT_OS,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,
     KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, KC_APP,  XXXXXXX, XXXXXXX,
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_TAB,  KC_SPC,  XXXXXXX, XXXXXXX
@@ -77,11 +84,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,
     GUI_A,   ALT_S,   SFT_D,   CTL_F,   MED_G,                          KC_H,    CTL_J,   SFT_K,   ALT_L,   GUI_SC,
     KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                           KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                      XXXXXXX, XXXXXXX, QWN_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, XXXXXXX, XXXXXXX
+                      KC_GRV,  KC_BSLS, QWN_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, KC_LBRC, KC_RBRC
   ),
 
   [_QWERTY_NAV] = LAYOUT(
-    KC_ESC,  KC_CAPS, TG(QWR), TG(QWR), XXXXXXX,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,
+    KC_ESC,  KC_CAPS, TO_ENG, TG(QWR),  PRNT_OS,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,
     KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, KC_APP,  XXXXXXX, XXXXXXX,
                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_TAB,  KC_SPC,  XXXXXXX, XXXXXXX
@@ -126,6 +133,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   }
 }
 
+void print_current_os() {
+  os_variant_t v = detected_host_os();
+  switch (v) {
+    case OS_LINUX:   SEND_STRING("Linux"); break;
+    case OS_WINDOWS: SEND_STRING("Windows"); break;
+    case OS_MACOS:   SEND_STRING("MacOS"); break;
+    case OS_IOS:     SEND_STRING("iOS"); break;
+    default:         SEND_STRING("Unsure");
+  }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   tap_dance_action_t *action;
 
@@ -136,6 +154,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (!record->event.pressed && action->state.count && !action->state.finished) {
         tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
         tap_code16(tap_hold->tap);
+      }
+      break;
+    case TO_RUS:
+      if (!record->event.pressed) {
+        layer_on(QWR);
+        tap_code16(LCA(KC_2));
+      }
+      break;
+    case TO_ENG:
+      if (!record->event.pressed) {
+        layer_off(QWR);
+        tap_code16(LCA(KC_1));
+      }
+      break;
+    case PRNT_OS:
+      if (record->event.pressed) {
+        print_current_os();
       }
       break;
   }
