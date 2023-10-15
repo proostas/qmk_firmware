@@ -1,0 +1,7 @@
+SRC += proostas.c
+
+MOUSEKEY_ENABLE = yes
+
+TAP_DANCE_ENABLE = yes
+
+OS_DETECTION_ENABLE = yes
