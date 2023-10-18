@@ -13,11 +13,6 @@ enum layer_names {
   _SYMBOL
 };
 
-enum tap_dance_names {
-  TD_BOOT_GRV,
-  TD_BOOT_RBRC
-};
-
 enum custom_keycodes {
   TO_RUS = SAFE_RANGE,
   TO_ENG,
@@ -58,9 +53,6 @@ enum custom_keycodes {
 #define MED_G   LT(MED, KC_G)
 #define SYM_M   LT(SYM, KC_M)
 #define SYM_H   LT(SYM, KC_H)
-
-#define GRV_BOOT TD(TD_BOOT_GRV)
-#define RBR_BOOT TD(TD_BOOT_RBRC)
 
 #define SH_LBRC LSFT(KC_LBRC)
 #define SH_RBRC LSFT(KC_RBRC)

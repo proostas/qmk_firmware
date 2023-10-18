@@ -6,14 +6,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                           KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT,
     GUI_A,   ALT_R,   SFT_S,   CTR_T,   MED_G,                          SYM_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O,
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                           KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH,
-                      GRV_BOOT,KC_BSLS, CON_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, KC_LBRC, RBR_BOOT
+                      KC_GRV,  KC_BSLS, CON_BSP, MOS_ENT,      FUN_TAB, NUM_SPC, KC_LBRC, KC_RBRC
   ),
 
   [_COLEMAK_NAV] = LAYOUT(
     KC_ESC,  KC_CAPS, TO_RUS, TG(QWR),  PRNT_OS,                        KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,
     KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,                        KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                        XXXXXXX, XXXXXXX, KC_APP,  XXXXXXX, XXXXXXX,
-                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_TAB,  KC_SPC,  XXXXXXX, XXXXXXX
+                      QK_BOOT, QK_RBT,  XXXXXXX, XXXXXXX,      KC_TAB,  KC_SPC,  XXXXXXX, XXXXXXX
   ),
 
   [_QWERTY] = LAYOUT(
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,
     KC_SCLN, KC_4,    KC_5,    KC_6,    KC_EQL,                         XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI,
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,                        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                      KC_COMM, KC_DOT,  KC_0,    KC_MINS,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
+                      KC_COMM, KC_DOT,  KC_0,    KC_MINS,      XXXXXXX, XXXXXXX, QK_RBT,  QK_BOOT
   ),
 
   [_FUNCTION] = LAYOUT(

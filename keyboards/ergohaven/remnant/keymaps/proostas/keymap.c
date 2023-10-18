@@ -7,7 +7,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                  KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, XXXXXXX,
     XXXXXXX, GUI_A,   ALT_R,   SFT_S,   CTR_T,   MED_G,                 SYM_M,   CTL_N,   SFT_E,   ALT_I,   GUI_O,   XXXXXXX,
     XXXXXXX, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,                  KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, XXXXXXX,
-                      GRV_BOOT,KC_BSLS,                                                   KC_LBRC, RBR_BOOT,
+                      KC_GRV,  KC_BSLS,                                                   KC_LBRC, KC_RBRC,
                                   CON_BSP, MOS_ENT, XXXXXXX,         XXXXXXX, FUN_TAB, NUM_SPC
   ),
 
@@ -16,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_ESC,  KC_CAPS, TO_RUS, TG(QWR),  PRNT_OS,               KC_PGUP, KC_HOME, KC_UP,   KC_END,  KC_INS,  XXXXXXX,
     XXXXXXX, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX,               KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, KC_DEL,  XXXXXXX,
     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               XXXXXXX, XXXXXXX, KC_APP,  XXXXXXX, XXXXXXX, XXXXXXX,
-                      XXXXXXX, XXXXXXX,                                                   XXXXXXX, XXXXXXX,
+                      QK_BOOT, QK_RBT,                                                    XXXXXXX, XXXXXXX,
                                   XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, KC_TAB,  KC_SPC
   ),
 
@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX, KC_LBRC, KC_7,    KC_8,    KC_9,    KC_RBRC,               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,  XXXXXXX,
     XXXXXXX, KC_SCLN, KC_4,    KC_5,    KC_6,    KC_EQL,                XXXXXXX, KC_RCTL, KC_RSFT, KC_RALT, KC_RGUI, XXXXXXX,
     XXXXXXX, KC_GRV,  KC_1,    KC_2,    KC_3,    KC_BSLS,               XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                      KC_COMM, KC_DOT,                                                    XXXXXXX, XXXXXXX,
+                      KC_COMM, KC_DOT,                                                    QK_RBT,  QK_BOOT,
                                   KC_0,   KC_MINS, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX
   ),
 

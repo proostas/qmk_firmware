@@ -13,6 +13,6 @@
 
 // Tap-Hold (and Tap-Dance)
 #define TAPPING_TERM                200
-#define TAPPING_TERM_PER_KEY
+//#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
-#define QUICK_TAP_TERM              100
+#define QUICK_TAP_TERM              120
