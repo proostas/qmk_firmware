@@ -1,6 +1,6 @@
 #include "combos.h"
-#include "proostas.h"
 #include "features/repeat_key.h"
+#include "definitions/keycodes.h"
 
 const uint16_t PROGMEM switch_lang_combo[] = {MOS_ENT, SYE_TAB, COMBO_END};
 const uint16_t PROGMEM force_lang_combo[] = {KC_B, KC_J, COMBO_END};

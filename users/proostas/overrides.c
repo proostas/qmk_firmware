@@ -1,5 +1,5 @@
 #include "overrides.h"
-#include "proostas.h"
+#include "definitions/keycodes.h"
 
 const key_override_t num_0_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_0, S(KC_7), (1<<NUE));
 const key_override_t num_7_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_7, KC_LPRN, (1<<NUE|1<<NUR));
