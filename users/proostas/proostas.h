@@ -1,6 +1,9 @@
 #pragma once
 #include "quantum.h"
 
+#include "combos.h"
+#include "overrides.h"
+
 enum layer_names {
     _ENGLISH,
     _ENGLISH_NAV,
@@ -62,13 +65,6 @@ enum custom_keycodes {
 #define SRN_BSLS S(KC_BSLS)
 #define SRN_SLSH S(KC_SLSH)
 #define SRN_MINS S(KC_MINS)
-
-enum combos {
-    SWITCH_LANG,
-    FORCE_LANG,
-    REPEAT_COMBO,
-    CAPSWORD_COMBO,
-};
 
 #define ENG  _ENGLISH
 #define ENN  _ENGLISH_NAV

@@ -1,3 +1,4 @@
+#include "combos.h"
 #include "proostas.h"
 #include "features/repeat_key.h"
 

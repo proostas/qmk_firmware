@@ -1,6 +1,5 @@
-SRC += proostas.c overrides.c features/achordion.c features/repeat_key.c
+SRC += proostas.c combos.c overrides.c features/achordion.c features/repeat_key.c
 
-INTROSPECTION_KEYMAP_C += combos.c
 MOUSEKEY_ENABLE = yes
 
 OS_DETECTION_ENABLE = yes

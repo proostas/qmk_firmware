@@ -1,18 +1,5 @@
+#include "overrides.h"
 #include "proostas.h"
-
-#define ko_make_with_layers_negmods_and_options_no_suppress(trigger_mods_, trigger_key, replacement_key, layer_mask, negative_mask, options_) \
-    ((const key_override_t){                                                                \
-        .trigger_mods                           = (trigger_mods_),                          \
-        .layers                                 = (layer_mask),                             \
-        .suppressed_mods                        = (0),                                      \
-        .options                                = (options_),                               \
-        .negative_mod_mask                      = (negative_mask),                          \
-        .custom_action                          = NULL,                                     \
-        .context                                = NULL,                                     \
-        .trigger                                = (trigger_key),                            \
-        .replacement                            = (replacement_key),                        \
-        .enabled                                = NULL                                      \
-    })
 
 const key_override_t num_0_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_0, S(KC_7), (1<<NUE));
 const key_override_t num_7_override = ko_make_with_layers(MOD_MASK_SHIFT, KC_7, KC_LPRN, (1<<NUE|1<<NUR));
@@ -119,38 +106,37 @@ const key_override_t rnum_0_override = {
     .enabled            = NULL
 };
 
-const key_override_t **key_overrides = (const key_override_t *[]){
-    &num_0_override,
-    &num_7_override,
-    &num_9_override,
-    &num_dot_override,
-    &diktor_w_override,
-    &diktor_z_override,
-    &diktor_p_override,
-    &diktor_d_override,
-    &diktor_r_override,
-    &diktor_l_override,
-    &diktor_e_override,
-    &diktor_b_override,
-    &diktor_t_override,
-    &diktor_j_override,
-    &diktor_f_override,
-    &diktor_k_override,
-    &diktor_y_override,
-    &diktor_n_override,
-    &diktor_c_override,
-    &diktor_h_override,
-    &diktor_a_override,
-    &diktor_quote_override,
-    &diktor_lbrc_override,
-    &diktor_s_override,
-    &diktor_dot_override,
-    &diktor_comma_override,
-    &diktor_v_override,
-    &rnum_4_override,
-    &rnum_6_override,
-    &rnum_1_override,
-    &rnum_slash_override,
-    &rnum_0_override,
-    NULL
+const key_override_t *key_overrides[] = {
+    [NUM_0] = &num_0_override,
+    [NUM_7] = &num_7_override,
+    [NUM_9] = &num_9_override,
+    [NUM_DOT] = &num_dot_override,
+    [DIKTOR_W] = &diktor_w_override,
+    [DIKTOR_Z] = &diktor_z_override,
+    [DIKTOR_P] = &diktor_p_override,
+    [DIKTOR_D] = &diktor_d_override,
+    [DIKTOR_R] = &diktor_r_override,
+    [DIKTOR_L] = &diktor_l_override,
+    [DIKTOR_E] = &diktor_e_override,
+    [DIKTOR_B] = &diktor_b_override,
+    [DIKTOR_T] = &diktor_t_override,
+    [DIKTOR_J] = &diktor_j_override,
+    [DIKTOR_F] = &diktor_f_override,
+    [DIKTOR_K] = &diktor_k_override,
+    [DIKTOR_Y] = &diktor_y_override,
+    [DIKTOR_N] = &diktor_n_override,
+    [DIKTOR_C] = &diktor_c_override,
+    [DIKTOR_H] = &diktor_h_override,
+    [DIKTOR_A] = &diktor_a_override,
+    [DIKTOR_QUOTE] = &diktor_quote_override,
+    [DIKTOR_LBRC] = &diktor_lbrc_override,
+    [DIKTOR_S] = &diktor_s_override,
+    [DIKTOR_DOT] = &diktor_dot_override,
+    [DIKTOR_COMMA] = &diktor_comma_override,
+    [DIKTOR_V] = &diktor_v_override,
+    [RNUM_4] = &rnum_4_override,
+    [RNUM_6] = &rnum_6_override,
+    [RNUM_1] = &rnum_1_override,
+    [RNUM_SLASH] = &rnum_slash_override,
+    [RNUM_0] = &rnum_0_override,
 };
