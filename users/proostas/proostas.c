@@ -537,6 +537,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, ui
         case SYR_TAB:
         case MOS_ENT:
         case FUN_ESC:
+        case MED_DEL:
             return true;
     }
     return achordion_opposite_hands(tap_hold_record, other_record);
