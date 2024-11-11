@@ -572,6 +572,58 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+#ifdef OLED_ENABLE
+bool oled_task_user(void) {
+    // Host Keyboard Layer Status
+    oled_write_P(PSTR("L: "), false);
+
+    switch (get_highest_layer(layer_state)) {
+        case _ENGLISH:
+            oled_write_ln_P(PSTR("English"), false);
+            break;
+        case _ENGLISH_NAV:
+        case _RUSSIAN_NAV:
+            oled_write_ln_P(PSTR("Navigation"), false);
+            break;
+        case _ENGLISH_NUM:
+        case _RUSSIAN_NUM:
+            oled_write_ln_P(PSTR("Number"), false);
+            break;
+        case _ENGLISH_SYM:
+        case _RUSSIAN_SYM:
+            oled_write_ln_P(PSTR("Symbol"), false);
+            break;
+        case _RUSSIAN:
+            oled_write_ln_P(PSTR("Russian"), false);
+            break;
+        case _FUNCTION:
+            oled_write_ln_P(PSTR("Function"), false);
+            break;
+        case _FUNCTION_EXT:
+            oled_write_ln_P(PSTR("Function Ext"), false);
+            break;
+        case _MEDIA:
+            oled_write_ln_P(PSTR("Media"), false);
+            break;
+        case _MOUSE:
+            oled_write_ln_P(PSTR("Mouse"), false);
+            break;
+        case _BUTTON:
+            oled_write_ln_P(PSTR("Button"), false);
+            break;
+        case _DANGER_L:
+        case _DANGER_R:
+            oled_write_ln_P(PSTR("Danger!!!"), false);
+            break;
+        default:
+            // Or use the write_ln shortcut over adding '\n' to the end of your string
+            oled_write_ln_P(PSTR("Undefined"), false);
+    }
+
+    return false;
+}
+#endif
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     HSV hsv = (HSV){HSV_BLACK};
     uint8_t layer = get_highest_layer(layer_state|default_layer_state);

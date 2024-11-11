@@ -1,6 +1,10 @@
 {
     "features": {
-        "rgblight": true
+        "nkro": true,
+        "oled": true,
+        "rgblight": false,
+        "rgb_matrix": true,
+        "mousekey": true,
     },
     "split": {
         "serial": {
@@ -14,6 +18,7 @@
     },
     "rgblight": {
         "led_count": 54,
+        "split": true,
         "split_count": [27, 27]
     },
     "ws2812": {

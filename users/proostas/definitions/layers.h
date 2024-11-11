@@ -9,7 +9,6 @@ enum layer_names {
     _RUSSIAN_NAV,
     _RUSSIAN_NUM,
     _RUSSIAN_SYM,
-    _NUMBER,
     _FUNCTION,
     _FUNCTION_EXT,
     _MEDIA,
